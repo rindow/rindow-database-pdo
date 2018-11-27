@@ -226,6 +226,10 @@ class Test extends TestCase
 
     public function testSetTransactionTimeout()
     {
+        if(getenv('POSTGRESQL_VERSION') && getenv('POSTGRESQL_VERSION')<"9.3") {
+            $this->markTestSkipped('Postgresql before version 9.3 does not support lock_timeout.');
+            return;
+        }
         $config = $this->getConfig();
         $dataSource = new DataSource($config);
         $connection = $dataSource->getConnection();
