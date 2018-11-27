@@ -144,6 +144,7 @@ class Test extends TestCase
             $xaResource->commit($xid,false);
             $this->assertEquals(1,$this->countRow());
         } catch(\Exception $e) {
+            echo get_class($e).':'.$e->getMessage()."\n";
             $xaResource->rollback($xid);
             $connection->close();
             echo 'close';
