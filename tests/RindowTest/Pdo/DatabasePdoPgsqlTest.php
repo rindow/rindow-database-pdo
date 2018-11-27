@@ -152,6 +152,10 @@ class Test extends TestCase
      */
     public function testLoginFailedError()
     {
+        if(getenv('TRAVIS_PHP_VERSION')) {
+            $this->markTestSkipped('It can not test pgsql login failure in travis.');
+            return;
+        }
         $config = array(
             'dsn' => "pgsql:host=127.0.0.1;dbname=".RINDOW_TEST_PGSQL_DBNAME,
             'user'     => RINDOW_TEST_PGSQL_USER,
