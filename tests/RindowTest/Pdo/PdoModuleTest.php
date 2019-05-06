@@ -56,9 +56,6 @@ class Test extends TestCase
         $client = new \PDO($dsn, $username, $password, $options);
         $client->exec("DROP TABLE IF EXISTS testdb");
         $client->exec("CREATE TABLE testdb ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, day DATE , ser INTEGER UNIQUE)");
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
-        \Rindow\Stdlib\Cache\CacheFactory::clearCache();
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
     }
 
 	public function testStandaloneNormal()
@@ -68,6 +65,7 @@ class Test extends TestCase
                 'modules' => array(
                     'Rindow\Database\Pdo\StandaloneModule' => true,
                 ),
+                'enableCache' => false,
             ),
             'database' => array(
                 'connections' => array(
@@ -97,6 +95,7 @@ class Test extends TestCase
                 'modules' => array(
                     'Rindow\Database\Pdo\LocalTxModule' => true,
                 ),
+                'enableCache' => false,
             ),
             'database' => array(
                 'connections' => array(
@@ -146,6 +145,7 @@ class Test extends TestCase
                     'Rindow\Database\Dao\Sql\Module' => true,
                     'Rindow\Database\Pdo\StandaloneModule' => true,
                 ),
+                'enableCache' => false,
             ),
             'database' => array(
                 'connections' => array(
@@ -199,6 +199,7 @@ class Test extends TestCase
                     'Rindow\Database\Dao\Sql\Module' => true,
                     'Rindow\Database\Pdo\LocalTxModule' => true,
                 ),
+                'enableCache' => false,
             ),
             'database' => array(
                 'connections' => array(

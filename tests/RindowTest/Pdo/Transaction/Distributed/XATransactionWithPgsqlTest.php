@@ -64,9 +64,6 @@ class Test extends TestCase
             $this->markTestSkipped(self::$skip);
             return;
         }
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
-        \Rindow\Stdlib\Cache\CacheFactory::clearCache();
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
         $client = $this->getPDOClient();
         try {
             $client->exec("ROLLBACK PREPARED 'foo'");

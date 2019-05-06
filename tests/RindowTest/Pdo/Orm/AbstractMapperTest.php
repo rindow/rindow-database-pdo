@@ -484,7 +484,6 @@ class Test extends TestCase
             $this->markTestSkipped(self::$skip);
             return;
         }
-        \Rindow\Stdlib\Cache\CacheFactory::clearCache();
         $client = $this->getPDOClient();
         $client->exec(ColorMapper::DROP_TABLE);
         $client->exec(CategoryMapper::DROP_TABLE);
@@ -564,6 +563,7 @@ class Test extends TestCase
                     'Rindow\Persistence\OrmShell\Module' => true,
                     'Rindow\Database\Pdo\LocalTxModule' => true,
                 ),
+                'enableCache' => false,
             ),
             'container' => array(
                 'aliases' => array(

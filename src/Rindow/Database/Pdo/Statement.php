@@ -13,11 +13,13 @@ class Statement implements IteratorAggregate
 {
     protected $statement;
     protected $connection;
+    protected $resultList;
 
-    public function __construct(PDOStatement $statement,Connection $connection)
+    public function __construct(PDOStatement $statement,Connection $connection,$resultList=null)
     {
         $this->statement = $statement;
         $this->connection = $connection;
+        $this->resultList = $resultList;
     }
 
     public function __call($name,array $args)
@@ -76,8 +78,18 @@ class Statement implements IteratorAggregate
         }
     }
 
+    public function setResultList($resultList)
+    {
+        $this->resultList = $resultList;
+    }
+
     public function getIterator()
     {
-        return new ResultList(array($this,'fetch'));
+        $resultList = $this->resultList;
+        if($resultList===null)
+            $resultList = new ResultList(array($this,'fetch'));
+        else
+            $resultList->setFetchFunction(array($this,'fetch'));
+        return $resultList;
     }
 }

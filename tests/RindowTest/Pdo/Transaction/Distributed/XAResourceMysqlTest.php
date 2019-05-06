@@ -62,9 +62,6 @@ class Test extends TestCase
             $this->markTestSkipped(self::$skip);
             return;
         }
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
-        \Rindow\Stdlib\Cache\CacheFactory::clearCache();
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
         $client = $this->getPDOClient();
         $client->exec("DROP TABLE IF EXISTS testdb");
         $client->exec("CREATE TABLE testdb ( id INTEGER PRIMARY KEY AUTO_INCREMENT, name TEXT NOT NULL, day DATE , ser INTEGER UNIQUE)");

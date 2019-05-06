@@ -478,9 +478,6 @@ class Test extends TestCase
             $this->markTestSkipped(self::$skip);
             return;
         }
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
-        \Rindow\Stdlib\Cache\CacheFactory::clearCache();
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
         $client = $this->getPDOClient();
         $client->exec(ColorMapper::DROP_TABLE);
         $client->exec(CategoryMapper::DROP_TABLE);
@@ -519,6 +516,7 @@ class Test extends TestCase
                     'Rindow\\Database\\Pdo\\DistributedTxModule' => true,
                     //'Rindow\\Module\\Monolog\\Module' => true,
                 ),
+                'enableCache' => false,
             ),
             'database' => array(
                 'connections' => array(

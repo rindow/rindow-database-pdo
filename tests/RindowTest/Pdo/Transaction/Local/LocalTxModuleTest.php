@@ -261,9 +261,6 @@ class Test extends TestCase
             $this->markTestSkipped(self::$skip);
             return;
         }
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
-        \Rindow\Stdlib\Cache\CacheFactory::clearCache();
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
         $client = $this->getPDOClient();
         $client->exec(CategoryMapper::DROP_TABLE);
         $client->exec(CategoryMapper::CREATE_TABLE);
@@ -318,6 +315,7 @@ class Test extends TestCase
                     //'Rindow\Module\Monolog\Module' => true,
                 ),
                 'annotation_manager' => true,
+                'enableCache' => false,
             ),
             'aop' => array(
                 //'debug' => true,

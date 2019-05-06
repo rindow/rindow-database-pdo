@@ -62,9 +62,6 @@ class Test extends TestCase
             $this->markTestSkipped(self::$skip);
             return;
         }
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
-        \Rindow\Stdlib\Cache\CacheFactory::clearCache();
-        usleep( RINDOW_TEST_CLEAR_CACHE_INTERVAL );
         $this->rollbackAll();
         $client = $this->getPDOClient();
         $client->exec("DROP TABLE IF EXISTS testdb");
