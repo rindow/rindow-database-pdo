@@ -16,6 +16,7 @@
         "rindow/rindow-annotation": "1.*",
         "rindow/rindow-container": "1.*",
         "rindow/rindow-aop": "1.*",
+        "rindow/rindow-messaging": "1.*",
         "rindow/rindow-transaction": "1.*",
         "rindow/rindow-persistence-orm": "1.*",
         "rindow/rindow-persistence-ormshell": "1.*"
