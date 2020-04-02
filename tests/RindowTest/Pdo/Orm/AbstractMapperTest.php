@@ -514,6 +514,7 @@ class Test extends TestCase
                     'Rindow\Persistence\OrmShell\Module' => true,
                     'Rindow\Database\Pdo\StandaloneModule' => true,
                 ),
+                'enableCache' => false,
             ),
             'container' => array(
                 'aliases' => array(
@@ -544,7 +545,7 @@ class Test extends TestCase
                     __NAMESPACE__.'\Product'  => __NAMESPACE__.'\ProductMapper',
                     __NAMESPACE__.'\Category' => __NAMESPACE__.'\CategoryMapper',
                     __NAMESPACE__.'\Color'    => __NAMESPACE__.'\ColorMapper',
-        
+
                     // O/D Mapping for MongoDB
                     //'Acme\MyApp\Entity\Product'  => 'Acme\MyApp\Persistence\ODM\ProductMapper',
                     //'Acme\MyApp\Entity\Category' => 'Acme\MyApp\Persistence\ODM\CategoryMapper',
@@ -595,7 +596,7 @@ class Test extends TestCase
                     __NAMESPACE__.'\Product'  => __NAMESPACE__.'\ProductMapper',
                     __NAMESPACE__.'\Category' => __NAMESPACE__.'\CategoryMapper',
                     __NAMESPACE__.'\Color'    => __NAMESPACE__.'\ColorMapper',
-        
+
                     // O/D Mapping for MongoDB
                     //'Acme\MyApp\Entity\Product'  => 'Acme\MyApp\Persistence\ODM\ProductMapper',
                     //'Acme\MyApp\Entity\Category' => 'Acme\MyApp\Persistence\ODM\CategoryMapper',
