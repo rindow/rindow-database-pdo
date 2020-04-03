@@ -6,7 +6,7 @@ Master: [![Build Status](https://travis-ci.com/rindow/rindow-database-pdo.png?br
 "Rindow - database - pdo" is one of implementation by PHP - PDO for data access abstracted by the rindow framework.
 Developers can choose other implementations as well.
 
-Currently the following adapters are available.
+Currently the following adapters are available
 
 - Raw SQL database access
 - DAO Consistent Exceptions
