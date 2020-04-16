@@ -58,7 +58,10 @@ class TestSqlRepository extends GenericSqlRepository
 
     public function fillId($entity,$id)
     {
-        $entity->id = $id;
+        if(is_object($entity))
+            $entity->id = $id;
+        else
+            $entity['id'] = $id;
         return $entity;
     }
 
